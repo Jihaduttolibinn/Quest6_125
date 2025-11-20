@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.DividerDefaults.Thickness
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -37,7 +38,7 @@ import com.example.arsitekturmvvm.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormSiswa(
-    plilinonNk: List<String>,
+    pilihanJk: List<String>,
     onSubmitButtonClicked: (MutableList<String>) -> Unit,
     modifier: Modifier = Modifier
 ){
@@ -78,5 +79,60 @@ fun FormSiswa(
                 onValueChange = {
                     txtNama = it
                 },
+            )
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .width(250.dp), thickness = Thickness, color =
+                    Color.Red
+            )
+            Row {
+                pilihanJk.forEach { item ->
+                    Row(modifier = Modifier.selectable(
+                            selected = txtGender == item,
+                            onClick = {
+                                txtGender = item
+                            }
+                        ),
+                        verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = txtGender == item,
+                            onClick = {
+                                txtGender = item
+                            }
+                        )
+                    }
+
+                }
+            }
+
+            HorizontalDivider(modifier = Modifier
+                .padding(20.dp)
+                .width(250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
+            OutlinedTextField(
+                value = txtAlamat,
+                singleLine = true,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier
+                    .width(250.dp),
+                label = {Text(text = "Alamat Lengkap")},
+                onValueChange = {
+                    txtAlamat = it
+                }
+            )
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                modifier = Modifier.fillMaxWidth(1f).padding(horizontal = 20.dp),
+                enabled = txtAlamat.isNotEmpty(),
+                onClick = {onSubmitButtonClicked(listDate)}
+            ){
+                Text(stringResource(id = R.string.submit))
+            }
+        }
+    }
+}
 
 
