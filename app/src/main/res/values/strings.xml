@@ -5,7 +5,7 @@
     <string name="submit">Submit</string>
     <string name="back">Back</string>
     <string name="nama">Nama Lengkap</string>
-    <string name="alamat">Alamat</string>
+    <string name="alamat">Alamat Lengkap</string>
     <string name="gender">Jenis Kelamin</string>
     <string name="detail">Data Siswa</string>
 </resources>

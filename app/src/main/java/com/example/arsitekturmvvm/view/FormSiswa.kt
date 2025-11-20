@@ -45,7 +45,7 @@ fun FormSiswa(
     var txtNama by rememberSaveable { mutableStateOf("") }
     var txtAlamat by remember { mutableStateOf("") }
     var txtGender by remember { mutableStateOf("") }
-    val listDate: MutableList<String> = mutableListOf(txtNama, txtGender, txtAlamat)
+    val listData: MutableList<String> = mutableListOf(txtNama, txtGender, txtAlamat)
 
     Scaffold(
         modifier = Modifier,
@@ -127,7 +127,7 @@ fun FormSiswa(
             Button(
                 modifier = Modifier.fillMaxWidth(1f).padding(horizontal = 20.dp),
                 enabled = txtAlamat.isNotEmpty(),
-                onClick = {onSubmitButtonClicked(listDate)}
+                onClick = {onSubmitButtonClicked(listData)}
             ){
                 Text(stringResource(id = R.string.submit))
             }
