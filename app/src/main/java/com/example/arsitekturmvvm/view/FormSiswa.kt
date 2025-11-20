@@ -46,3 +46,20 @@ fun FormSiswa(
     var txtGender by remember { mutableStateOf("") }
     val listDate: MutableList<String> = mutableListOf(txtNama, txtGender, txtAlamat)
 
+    Scaffold(
+        modifier = Modifier,
+        {
+            TopAppBar(
+                title = {
+                    Text(
+                        stringResource(id = R.string.detail),
+                        color = Color.White
+                    )
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    colorResource(id = R.color.teal_700)
+                )
+            )
+        }
+    )
+
